@@ -29,7 +29,8 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
-        push: true
+        #push: true
+        load: true
         tags: ${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }}
         file: ./Dockerfile
 
@@ -49,3 +50,5 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7e32f99df923402a9a099a97ed96623a }}
         images: 'connectinsightacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }}'
+    - name: Docker run
+      run: docker push ${{ env.IMAGE }}:${{ env.GIT_SHA }}
