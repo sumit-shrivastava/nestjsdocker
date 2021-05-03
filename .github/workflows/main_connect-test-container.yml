@@ -32,7 +32,7 @@ jobs:
         #push: true
         load: true
         registry: https://connectinsightacr.azurecr.io/
-        tags: ${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }} ${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:latest
         file: ./Dockerfile
 
   deploy:
