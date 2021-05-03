@@ -51,4 +51,4 @@ jobs:
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7e32f99df923402a9a099a97ed96623a }}
         images: 'connectinsightacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }}'
     - name: Docker run
-      run: docker push ${{ secrets.AzureAppService_ContainerUsername_9839e0c5e14d4637adbeb6c1347eaeeb }}/nestjsdocker:${{ github.sha }}
+      run: docker push nestjsdocker:${{ github.sha }}
